@@ -2,13 +2,13 @@
 #include<fstream>
 #include<string>
 #include<iomanip>
-
+#include<vector>
+#include<sstream>
 using namespace std;
 
 class shape{
 public:
 float virtual get_area()=0;
-
 
 };
 
@@ -52,25 +52,76 @@ float get_area()
 
 int main()
 {
-ifstream in;
-ofstream out;
-int id;
-out.open("data.txt",ios::app);
+  c circle;
+  r rectangle;
+  t triangle;
+  ifstream out;
+//out.open("data.txt",ios::app);
 //check for file opening
-if(out.is_open())
+// vector<string>data;
+// int a=0;
+//  while(!out.eof())
+//   {
+//     string temp;
+//
+//     getline(out,temp);
+//         std::cout << temp << '\n';
+//   }
+ //split(i am in class)
+
+
+//  std::cout<<"age "<< id<<'\n';
+//  std::cout << setw(5)<<"hello world" << '\n';
+
+
+
+int i = 0;
+string line;
+
+vector < string > v;
+
+ifstream fin;
+
+fin.open ("data.txt");
+
+if ( fin.is_open ( ))
+{
+  while ( getline ( fin, line ))
   {
-    std::cout << "file Opened!!!!!!!!!!!!!!!! " << '\n';
+    stringstream ss ( line );
+
+    while ( getline (ss ,line, ','))
+    {
+      v.push_back(line);
+    }
   }
-  out.write((char *)&id,sizeof(id));
-  out.close();
-
-  in.read((char *)&roll,sizeof(roll));
-
-  in.read((char *)&age,sizeof(age));
-  std::cout<<"roll # "<< roll<<'\n';
-  std::cout<<"age "<< age<<'\n';
-  std::cout << setw(5)<<"hello world" << '\n';
-
+// while ( true )
+//   {
+//     if ( i == v.size())
+//     {
+//       break;
+//     }
+//     cout <<v[i+1]<< "\n";
+//     i++;
+//   }
+}
+i=0;
+while ( true )
+  {
+    if (i==v.size())
+    {
+      break;
+    }
+    if(v[i]=="c")
+    {
+    cout <<v[i+1]<< "\n";
+    }
+    if(v[i]=="c")
+    {
+    cout <<v[i+1]<< "\n";
+    }
+    i++;
+  }
 
 
   return 0;
