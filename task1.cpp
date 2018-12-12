@@ -7,7 +7,7 @@ using namespace std;
 
 class shape{
 public:
-
+float virtual get_area()=0;
 
 
 };
@@ -29,6 +29,10 @@ private:
   float width;
   float height;
 public:
+float get_area()
+{
+  return width*height;
+}
 
 
 
@@ -38,13 +42,34 @@ private:
   float base;
   float height;
 public:
-
+float get_area()
+{
+  return 0.5*base*height;
+}
 
 };
 
 
 int main()
 {
+ifstream in;
+ofstream out;
+int id;
+out.open("data.txt",ios::app);
+//check for file opening
+if(out.is_open())
+  {
+    std::cout << "file Opened!!!!!!!!!!!!!!!! " << '\n';
+  }
+  out.write((char *)&id,sizeof(id));
+  out.close();
+
+  in.read((char *)&roll,sizeof(roll));
+
+  in.read((char *)&age,sizeof(age));
+  std::cout<<"roll # "<< roll<<'\n';
+  std::cout<<"age "<< age<<'\n';
+  std::cout << setw(5)<<"hello world" << '\n';
 
 
 
